@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            font-size: 20px;
+            line-height: 1.5;
+            color: dodgerblue;
+            background-color: tomato;
+        }
+
+
+        .container{
+            width: 1200px;
+            margin: 100px auto;
+            padding: 10px;
+            display: grid;
+
+            border : 2px solid black;
+
+            /* grid-template-columns:1fr 2fr 1fr ; */
+
+            grid-template-columns: repeat(3 , 1fr) ;
+
+            /* column-gap: 20px;
+            row-gap: 20px; */
+
+            gap: 20px;
+
+            /* grid-template-rows: 1fr 2fr 1fr; */
+
+
+            /* grid-auto-rows: 200px; */
+/* 
+
+            align-items:end ;
+            justify-content: end ; */
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+        .item{
+            background-color: dodgerblue;
+            color: white;
+            font-size: 20px;
+            padding: 20px; 
+            border: 1px solid lightblue;
+        }
+
+
+      /* //pseudo child selector */
+        .item:nth-of-type(2){
+            /* height: 100px;
+            width: 100px; */
+
+            /* align-self: center;
+            justify-self: center; */
+
+            /* grid-column: span ; */
+
+
+        }
+
+/* 
+        .item.item:nth-of-type(1){
+
+           background: black;
+           /* grid-column: 1/3;
+           grid-row: 1/3; */
+
+           /* grid-column: span 2;
+        } */ 
+
+
+        .item:nth-of-type(3){
+            grid-column: span ;
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+
+
+
+
+<body>
+    
+
+
+    <div class="container">
+        <div class="item" >Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        
+
+
+    </div>
+</body>
+</html>
