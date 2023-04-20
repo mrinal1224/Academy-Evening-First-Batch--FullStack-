@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+
+    <style>
+
+        .container{
+            background-color: dodgerblue;
+
+            height: 3000px;
+
+        }
+
+        .box{
+            display: inline-block;
+            height: 150px;
+            width: 300px;
+
+            background-color: tomato;
+            margin-top: 300px;
+            /* margin: 10px; */
+
+        }
+          /* static , relative , absolute , fixed and sticky */
+        #box_3{
+            /* position: fixed; */
+            /* right: 4px;
+            bottom: 1px; */
+
+
+            position: sticky;
+            top:0;
+            
+
+           
+        }
+
+        #box_4{
+            width: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container"> 
+
+   <div class="box">1</div>
+   <div class="box">2</div>
+   <div class="box" id="box_3">3</div>
+   <div class="box" id="box_4">4</div>
+</div>
+
+   
+</body>
+</html>
