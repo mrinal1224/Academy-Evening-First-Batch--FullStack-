@@ -1,14 +1,7 @@
-function printName(cb1 , cb2 , cb3 , num){
+function printName(cb1){
     console.log('Shikhar')
-    cb1()
-    cb2()
-    cb3()
-    return num
+    cb1() // printLastname
 }
-
-
-
-
 
 function printLastName(){
     console.log('Singh')
@@ -16,20 +9,4 @@ function printLastName(){
 }
 
 
-function printAge(){
-    console.log(25)
-}
-
-function printAddres(){
-    console.log('Delhi')
-}
-
-
-function printAnyRandomNumber(){
-    console.log(2)
-}
-
-
-let a = printName(printLastName, printAge , printAddres , 10)
-
-console.log('This is returned Output '+ a)
+printName(printLastName)
