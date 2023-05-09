@@ -7,28 +7,61 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="all">Remove All</button>
+    <button id="removeAll">Remove All</button>
     <ul>
       <li>
         <p>Task - 1</p>
-        <button>delete</button>
+        <button class="delete_button">delete</button>
       </li>
       <li>
         <p>Task - 2</p>
-        <button>delete</button>
+        <button class="delete_button">delete</button>
       </li>
       <li>
         <p>Task - 3</p>
-        <button>delete</button>
+        <button class="delete_button">delete</button>
       </li>
       <li>
         <p>Task - 4</p>
-        <button>delete</button>
+        <button class="delete_button">delete</button>
       </li>
     </ul>
     <script>
       // Q- Make remove all button work  and make individual delete btn work 
       //   Solution:
+
+      let removeAllBtn = document.querySelector('#removeAll')
+
+      let ul = document.querySelector('ul')
+
+      let AllDeleteButton = document.querySelectorAll('.delete_button')
+
+      let AllListItems = ul.querySelectorAll('li')
+
+      for(let i=0 ; i<AllDeleteButton.length ; i++){
+          AllDeleteButton[i].addEventListener('click' , function(e){
+              e.currentTarget.parentElement.remove()
+          })
+      };
+
+       
+      removeAllBtn.addEventListener('click' , function(){
+            AllListItems = ul.querySelectorAll('li')
+
+           for(let i=0 ; i<AllListItems.length ; i++){
+               ul.removeChild(AllListItems[i])
+           }
+      })
+
+
+
+
+
+
+
+
+
+
 
     </script>
   </body>
