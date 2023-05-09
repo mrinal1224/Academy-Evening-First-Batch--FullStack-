@@ -42,7 +42,7 @@
   </head>
 
   <body>
-    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="blue"></div>  
     <div class="card" data-color="red"></div>
     <div class="card" data-color="blue"></div>
     <div class="card" data-color="red"></div>
@@ -56,6 +56,35 @@
       // Q Write a script which fetches the data-color attribute of the card on 
       //double clicking on them and attaches the fetched class to that card.
       // Also changes the data-color attribute to "used"
+
+      let cardsNodeList = document.querySelectorAll('.card')
+
+      console.log(cardsNodeList)
+
+      for(let i=0 ; i<cardsNodeList.length;i++){
+        cardsNodeList[i].addEventListener('dblclick' , function(e){
+          console.log(e.currentTarget)
+           let classTobeAttached = e.currentTarget.getAttribute('data-color')
+
+           console.log(classTobeAttached)
+
+           e.currentTarget.classList.add(classTobeAttached)
+           e.currentTarget.setAttribute('data-color' , 'used')
+
+
+
+
+
+        })
+      }
+
+
+
+
+
+
+
+
 
       
 
