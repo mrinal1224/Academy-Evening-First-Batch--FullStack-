@@ -1,0 +1,26 @@
+[
+
+    {
+        "name": "Farm 1",
+        "products" : ["Eggs" , "vegetables" , "Milk"],
+        "resgistrationNo" : 12345,
+        "Employess" : 70,
+        "isOperating" : true
+    },
+
+    {
+        "name": "Farm 2",
+        "products" : ["vegetables" , "Milk" , "cheese"],
+        "resgistrationNo" : 12345123,
+        "Employess" : 60,
+        "isOperating" : false
+    },
+
+    {
+        "name": "Farm 3",
+        "products" : ["vegetables" , "Meat"],
+        "resgistrationNo" : 12345678,
+        "Employess" : 70,
+        "isOperating" : true
+    }
+]
