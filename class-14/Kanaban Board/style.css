@@ -31,6 +31,11 @@ body{
 
 }
 
+.toolbox-priority-cont>*:hover{
+    background-color: #485460;
+}
+
+
 
 .color{
     height: 1.5rem;
@@ -81,6 +86,59 @@ body{
 
  .remove-btn:hover{
     background-color: #4BB543;
+ }
+
+
+
+ .modal-cont{
+   height: 50vh;
+   width: 45vw;
+   display: flex;
+   background-color: lightsalmon;
+   position: absolute;
+   top:30%;
+   left: 27%;
+
+
+
+
+
+ }
+
+
+
+ .textArea-cont{
+     height: 100%;
+     width: 75%;
+     resize: none;
+     outline: none;
+     border: none;
+     background-color: #dfe4ea;
+     font-size: 2rem;
+     color: black;
+ }
+
+
+ .priority-colors-container{
+     height: 100%;
+     width: 25%;
+     display: flex;
+     flex-direction: column;
+     background-color: #4b4b4b;
+     align-items: center;
+     justify-content: space-around;
+
+ }
+
+
+ .priority-color{
+     height: 3rem;
+     width: 5rem;
+ }
+
+
+ .active{
+     border: 3px solid lightsalmon;
  }
 
 
