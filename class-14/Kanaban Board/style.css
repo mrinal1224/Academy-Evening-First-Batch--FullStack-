@@ -98,12 +98,34 @@ body{
    position: absolute;
    top:30%;
    left: 27%;
+   display: none;
 
 
+}
 
 
+.main-cont{
+    display: flex; 
+    gap:2rem;
+    justify-content: center;
+    padding: 2rem;
+}
 
- }
+.ticket-cont{
+    height: 12rem;
+    width: 15rem;
+    background-color: coral;
+}
+
+.ticket-color{
+    height: 1rem;
+    background-color: black;
+}
+
+.ticket-id{
+    background-color: yellow;
+    height: 2rem;
+}
 
 
 
