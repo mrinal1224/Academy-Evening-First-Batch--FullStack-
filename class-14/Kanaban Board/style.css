@@ -120,7 +120,6 @@ body{
 
 .ticket-color{
     height: 1rem;
-    background-color: black;
 }
 
 .ticket-id{
@@ -161,7 +160,7 @@ body{
 
 
  .active{
-     border: 3px solid lightsalmon;
+     border: 5px solid lightsalmon;
  }
 
 
