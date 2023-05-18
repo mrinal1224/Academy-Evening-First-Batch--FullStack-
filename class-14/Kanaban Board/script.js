@@ -1,7 +1,7 @@
 let addBtn = document.querySelector('.add-btn')
 let modalCont = document.querySelector('.modal-cont')
 let mainCont = document.querySelector('.main-cont')
-let textArea = document.querySelector('.textArea-cont')
+let textAreaCont = document.querySelector('.textArea-cont')
 
 let allPriorityColors = document.querySelectorAll('.priority-color')
 
@@ -50,10 +50,10 @@ modalCont.addEventListener('keydown' , function(e){
     let key = e.key
 
     if(key==='Shift'){
-        createTicket(modalPrioritycolor) // ticket generation
+        createTicket(modalPrioritycolor , textAreaCont.value , shortid()) // ticket generation
         modalCont.style.display = 'none'
-        textArea.value = ''
-
+        console.log(textAreaCont.value)
+        textAreaCont.value = ''
     }
 })
 
@@ -61,16 +61,18 @@ modalCont.addEventListener('keydown' , function(e){
 
 
 
-function createTicket(ticketColor){
+function createTicket(ticketColor , ticketTask , ticketID ){
     let ticketCont = document.createElement('div')
     ticketCont.setAttribute('class' , 'ticket-cont')
 
 
     ticketCont.innerHTML =`<div class=" ${ticketColor} ticket-color"></div>
-    <div class="ticket-id">12345</div>
-    <div class="task-area">Random Task</div>`
+    <div class="ticket-id">${ticketID}</div>
+    <div class="task-area">${ticketTask}</div>`
 
     mainCont.appendChild(ticketCont)
+
+    
 
     
 }

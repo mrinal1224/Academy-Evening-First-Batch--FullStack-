@@ -15,3 +15,11 @@ let FeDoubled = arr.forEach(function(ele){
     console.log(ele*2)
 })
 
+
+let a = 123
+
+console.log(`this is the value of a ${a}`)
+
+
+
+
