@@ -8,6 +8,8 @@ let allPriorityColors = document.querySelectorAll('.priority-color')
 
 let colors = ["lightpink", "lightgreen", "lightblue", "black"];
 
+let toolboxColors = document.querySelectorAll('.color')
+
 let lockClass = 'fa-lock' // closed lock
 let unlockClass = 'fa-lock-open' // open-lock
 
@@ -16,7 +18,45 @@ let removeTaskFlag = false
 
 let modalPrioritycolor = colors[colors.length-1]
 
+
+let ticketsArr = []
+
 console.log(addTaskFlag)
+
+
+// Making Tasks visibile according to colors
+
+
+for(let i=0 ; i<toolboxColors.length ; i++){
+    toolboxColors[i].addEventListener('click' , function(){
+        let selectedToolBoxColor = toolboxColors[i].classList[0]
+
+        let filterdTickets = ticketsArr.filter(function(ticket){
+            return selectedToolBoxColor === ticket.ticketColor
+        })
+
+        let allTickets = document.querySelectorAll('.ticket-cont')
+
+        for(let i=0 ; i<allTickets.length ; i++){
+            allTickets[i].remove()
+        }
+
+
+        filterdTickets.forEach(function(filterdTicket){
+            createTicket(
+                filterdTicket.ticketColor , filterdTicket.ticketTask , filterdTicket.ticketID
+            )
+        })
+
+
+
+            
+
+    })
+}
+
+
+
 
 
 
@@ -95,6 +135,11 @@ function createTicket(ticketColor , ticketTask , ticketID ){
     `
 
     mainCont.appendChild(ticketCont)
+
+
+    ticketsArr.push({ticketColor , ticketTask , ticketID})
+
+    console.log(ticketsArr)
 
     handleRemoval(ticketCont)
 
