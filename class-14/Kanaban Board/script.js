@@ -6,7 +6,7 @@ let textAreaCont = document.querySelector('.textArea-cont')
 
 let allPriorityColors = document.querySelectorAll('.priority-color')
 
-// let colors = ["lightpink", "lightgreen", "lightblue", "black"];
+let colors = ["lightpink", "lightgreen", "lightblue", "black"];
 
 let lockClass = 'fa-lock' // closed lock
 let unlockClass = 'fa-lock-open' // open-lock
@@ -14,7 +14,7 @@ let unlockClass = 'fa-lock-open' // open-lock
 let addTaskFlag = false
 let removeTaskFlag = false
 
-let modalPrioritycolor ='black'
+let modalPrioritycolor = colors[colors.length-1]
 
 console.log(addTaskFlag)
 
@@ -86,7 +86,7 @@ function createTicket(ticketColor , ticketTask , ticketID ){
     ticketCont.setAttribute('class' , 'ticket-cont')
 
 
-    ticketCont.innerHTML =`<div class=" ${ticketColor} ticket-color"></div>
+    ticketCont.innerHTML =`<div class=" ticket-color ${ticketColor} "></div>
     <div class="ticket-id">${ticketID}</div>
     <div class="task-area">${ticketTask}</div>
     <div class="ticket-lock">
@@ -100,6 +100,10 @@ function createTicket(ticketColor , ticketTask , ticketID ){
 
 
     handleLock(ticketCont)
+
+    handleColor(ticketCont)
+
+
 
     
 
@@ -139,6 +143,29 @@ function handleLock(ticket){
         ticketTaskArea.setAttribute('contenteditable' , 'false')
       }
   })
+}
+
+
+function handleColor(ticket){
+      let ticketColorBand = ticket.querySelector('.ticket-color')
+
+      ticketColorBand.addEventListener('click' , function(){
+          let currentColor = ticketColorBand.classList[1]
+
+          let currentColorIdx = colors.findIndex(function(color){
+              return currentColor === color
+          })
+
+          currentColorIdx++
+
+          let newTicketColorIdx = currentColorIdx % colors.length
+
+          let newTicketColor = colors[newTicketColorIdx]
+
+          ticketColorBand.classList.remove(currentColor)
+          ticketColorBand.classList.add(newTicketColor)
+           
+      })
 
 
 }
