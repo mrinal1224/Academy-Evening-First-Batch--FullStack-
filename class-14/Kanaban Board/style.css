@@ -127,6 +127,15 @@ body{
     height: 2rem;
 }
 
+.ticket-lock{
+    display: flex;
+
+    justify-content: flex-end;
+    margin-top: 90px;
+    margin-right: 5px;
+    font-size: 1.5rem;
+}
+
 
 
  .textArea-cont{

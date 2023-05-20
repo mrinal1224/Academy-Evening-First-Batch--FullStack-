@@ -1,4 +1,5 @@
 let addBtn = document.querySelector('.add-btn')
+let removeBtn = document.querySelector('.remove-btn')
 let modalCont = document.querySelector('.modal-cont')
 let mainCont = document.querySelector('.main-cont')
 let textAreaCont = document.querySelector('.textArea-cont')
@@ -7,7 +8,11 @@ let allPriorityColors = document.querySelectorAll('.priority-color')
 
 // let colors = ["lightpink", "lightgreen", "lightblue", "black"];
 
+let lockClass = 'fa-lock' // closed lock
+let unlockClass = 'fa-lock-open' // open-lock
+
 let addTaskFlag = false
+let removeTaskFlag = false
 
 let modalPrioritycolor ='black'
 
@@ -45,6 +50,21 @@ addBtn.addEventListener('click' , function(){
 
 })
 
+removeBtn.addEventListener('click' , function(){
+    removeTaskFlag = !removeTaskFlag
+
+    if(removeTaskFlag==true){
+        alert('delete button has been activated')
+        removeBtn.style.color = 'red'
+    }
+    else{
+        removeBtn.style.color = 'white'
+    }
+})
+
+
+
+
 
 modalCont.addEventListener('keydown' , function(e){
     let key = e.key
@@ -68,11 +88,57 @@ function createTicket(ticketColor , ticketTask , ticketID ){
 
     ticketCont.innerHTML =`<div class=" ${ticketColor} ticket-color"></div>
     <div class="ticket-id">${ticketID}</div>
-    <div class="task-area">${ticketTask}</div>`
+    <div class="task-area">${ticketTask}</div>
+    <div class="ticket-lock">
+    <i class="fa-solid fa-lock"></i>
+  </div>
+    `
 
     mainCont.appendChild(ticketCont)
 
+    handleRemoval(ticketCont)
+
+
+    handleLock(ticketCont)
+
     
 
     
+}
+
+
+function handleRemoval(ticket){
+   ticket.addEventListener('click' ,function(){
+       if(!removeTaskFlag) return
+
+       else{
+           ticket.remove()
+       }
+   })
+}
+
+
+
+function handleLock(ticket){
+  let ticketLockElem = ticket.querySelector('.ticket-lock')
+
+  let ticketLockIcon = ticketLockElem.children[0]
+
+  let ticketTaskArea = ticket.querySelector('.task-area')
+
+
+
+  ticketLockIcon.addEventListener('click' , function(){
+      if(ticketLockIcon.classList.contains(lockClass)){
+          ticketLockIcon.classList.remove(lockClass)
+          ticketLockIcon.classList.add(unlockClass)
+          ticketTaskArea.setAttribute('contenteditable' , 'true')
+        }else{
+        ticketLockIcon.classList.remove(unlockClass)
+        ticketLockIcon.classList.add(lockClass)
+        ticketTaskArea.setAttribute('contenteditable' , 'false')
+      }
+  })
+
+
 }
