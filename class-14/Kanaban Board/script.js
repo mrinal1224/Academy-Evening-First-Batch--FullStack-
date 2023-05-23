@@ -59,13 +59,30 @@ for(let i=0 ; i<toolboxColors.length ; i++){
                 filterdTicket.ticketColor , filterdTicket.ticketTask , filterdTicket.ticketID
             )
         })
+        
+ })
 
+    toolboxColors[i].addEventListener("dblclick", function () {
+    let allTickets = document.querySelectorAll(".ticket-cont");
 
+    for (let i = 0; i < allTickets.length; i++) {
+      allTickets[i].remove();
+    }
 
-            
-
-    })
+    ticketsArr.forEach(function (ticketObj) {
+      createTicket(
+        ticketObj.ticketColor,
+        ticketObj.ticketTask,
+        ticketObj.ticketID
+      );
+    });
+  });
 }
+
+ 
+
+
+
 
 
 
