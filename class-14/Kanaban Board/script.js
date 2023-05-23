@@ -147,12 +147,12 @@ function createTicket(ticketColor , ticketTask  , ticketID ){
 
     mainCont.appendChild(ticketCont)
 
-    handleRemoval(ticketCont)
+    handleRemoval(ticketCont , id)
 
 
     handleLock(ticketCont , id )
 
-    handleColor(ticketCont)
+    handleColor(ticketCont , id)
 
 
     if(!ticketID){
@@ -175,13 +175,20 @@ function createTicket(ticketColor , ticketTask  , ticketID ){
 }
 
 
-function handleRemoval(ticket){
+function handleRemoval(ticket , id){
    ticket.addEventListener('click' ,function(){
        if(!removeTaskFlag) return
 
-       else{
-           ticket.remove()
-       }
+         let idx = getTicketIdx(id)
+
+         ticket.remove() // ui removal
+
+         let deletedElement = ticketsArr.splice(idx , 1)
+         console.log(deletedElement)
+
+
+         localStorage.setItem('tickets' , JSON.stringify(ticketsArr))
+       
    })
 }
 
@@ -216,12 +223,13 @@ function handleLock(ticket , id){
 }
 
 
-function handleColor(ticket){
+function handleColor(ticket , id){
 
      
       let ticketColorBand = ticket.querySelector('.ticket-color')
 
       ticketColorBand.addEventListener('click' , function(){
+          let ticketIdx = getTicketIdx(id)
           let currentColor = ticketColorBand.classList[1]
 
           let currentColorIdx = colors.findIndex(function(color){
@@ -236,6 +244,12 @@ function handleColor(ticket){
 
           ticketColorBand.classList.remove(currentColor)
           ticketColorBand.classList.add(newTicketColor)
+
+
+
+
+          ticketsArr[ticketIdx].ticketColor = newTicketColor
+          localStorage.setItem('tickets' , JSON.stringify(ticketsArr))
            
       })
 
