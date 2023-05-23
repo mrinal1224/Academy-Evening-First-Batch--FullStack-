@@ -35,6 +35,8 @@ for(let i=0 ; i<toolboxColors.length ; i++){
             return selectedToolBoxColor === ticket.ticketColor
         })
 
+        console.log(filterdTickets)
+
         let allTickets = document.querySelectorAll('.ticket-cont')
 
         for(let i=0 ; i<allTickets.length ; i++){
@@ -110,7 +112,7 @@ modalCont.addEventListener('keydown' , function(e){
     let key = e.key
 
     if(key==='Shift'){
-        createTicket(modalPrioritycolor , textAreaCont.value , shortid()) // ticket generation
+        createTicket(modalPrioritycolor , textAreaCont.value ) // ticket generation
         modalCont.style.display = 'none'
         console.log(textAreaCont.value)
         textAreaCont.value = ''
@@ -122,12 +124,13 @@ modalCont.addEventListener('keydown' , function(e){
 
 
 function createTicket(ticketColor , ticketTask , ticketID ){
+    let id = ticketID || shortid();
     let ticketCont = document.createElement('div')
     ticketCont.setAttribute('class' , 'ticket-cont')
 
 
     ticketCont.innerHTML =`<div class=" ticket-color ${ticketColor} "></div>
-    <div class="ticket-id">${ticketID}</div>
+    <div class="ticket-id">${id}</div>
     <div class="task-area">${ticketTask}</div>
     <div class="ticket-lock">
     <i class="fa-solid fa-lock"></i>
@@ -136,17 +139,20 @@ function createTicket(ticketColor , ticketTask , ticketID ){
 
     mainCont.appendChild(ticketCont)
 
-
-    ticketsArr.push({ticketColor , ticketTask , ticketID})
-
-    console.log(ticketsArr)
-
     handleRemoval(ticketCont)
 
 
     handleLock(ticketCont)
 
     handleColor(ticketCont)
+
+    if(!ticketID){
+        ticketsArr.push({ticketColor , ticketTask , ticketID:id})
+      }
+
+
+      console.log(ticketsArr)
+       
 
 
 
