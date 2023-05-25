@@ -32,20 +32,22 @@
 
         grandparentDiv.addEventListener('click', function () {
             console.log('grand parent has been clicked')
-        } ,true)
+        } , true) // capturing
 
         let parentDiv = document.getElementById('parent')
 
-        parentDiv.addEventListener('click', function () {
+        parentDiv.addEventListener('click', function (e) {
             console.log('parent has been clicked')
-        } , true)
+           
+        } ,false) // bubbling
 
 
         let childDiv = document.getElementById('child')
 
-        childDiv.addEventListener('click', function () {
+        childDiv.addEventListener('click', function (e) {
             console.log('child has been clicked')
-        } ,true)
+            e.stopPropagation()
+        } ,true) // capturing
 
 
 
