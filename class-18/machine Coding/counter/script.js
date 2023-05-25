@@ -8,6 +8,10 @@ let incrementNumber = 1
 
 incrementField.addEventListener('change' , function(e){
     incrementNumber = parseInt(e.target.value)
+
+    if(incrementNumber <1){
+        incrementNumber  = 1
+    }
 })
 
 addBtn.addEventListener('click' , function(e){
