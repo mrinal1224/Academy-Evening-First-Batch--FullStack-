@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            min-height: 100px;
+            min-width: 100px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grandparent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        let grandparentDiv = document.getElementById('grandparent')
+
+        grandparentDiv.addEventListener('click', function () {
+            console.log('grand parent has been clicked')
+        } ,true)
+
+        let parentDiv = document.getElementById('parent')
+
+        parentDiv.addEventListener('click', function () {
+            console.log('parent has been clicked')
+        } , true)
+
+
+        let childDiv = document.getElementById('child')
+
+        childDiv.addEventListener('click', function () {
+            console.log('child has been clicked')
+        } ,true)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
