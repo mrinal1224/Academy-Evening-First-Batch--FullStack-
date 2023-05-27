@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="#ddd">
+<body>
     <h3>Changing the tables font color</h3>
     <h5> Click on a text in a cell for changing its color</h5>
     <table id = "mynewtable">
@@ -19,12 +19,13 @@
         </h3>
       </tr>
     </table>
+
   
     <script>
 
-        let table = document.getElementById('mynewtable')
+        let tableDiv = document.getElementById('table-div')
 
-        table.addEventListener('click' , function(e){
+        tableDiv.addEventListener('click' , function(e){
           e.target.style.color = 'blue'
         })
        
