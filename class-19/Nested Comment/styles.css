@@ -46,3 +46,8 @@
   }
 
 
+
+.all-comments:not(:first-child){
+    margin-left: 4rem;
+}
+
