@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+
+
+   <script>
+
+       let count = 0
+
+       function work(){
+           console.log('Network Request ->  ' , count)
+           count++
+       }
+
+
+       // Debouncing
+
+
+       function debounce(work , delay){
+           let timerID;
+         return function optWorkFn(){
+
+            clearTimeout(timerID)
+             
+           timerID = setTimeout(function(){
+                 work()
+             } , delay)
+         }
+       }
+
+
+       let optFn = debounce(work , 1000)
+
+
+       let input = document.querySelector('input')
+
+       input.addEventListener('keydown' , optFn )
+   </script>
+
+
+
+</body>
+</html>
