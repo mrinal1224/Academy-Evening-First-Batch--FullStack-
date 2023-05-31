@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+         div{
+             height: 200px;
+             width: 200px;
+             background-color: tomato;
+         }
+</style>
+<body>
+
+
+    <div>
+        I am the the Div
+    </div>
+
+
+    <button onclick=stopAnimation()>Stop animation</button>
+
+
+
+
+    <script>
+
+        // function printName(){
+        //     console.log('Yogendra')
+        // }
+
+
+        // setTimeout(printName , 5000)
+
+        // setTimeout(function(){
+        //     console.log('I am the output from set Timeout')
+        // } , 2000)
+
+
+        function startAnimation(){
+            let target = document.querySelector('div')
+
+            target.style.width = '500px'
+        }
+
+       let id =  setTimeout(startAnimation , 5000)
+
+        
+
+
+       console.log(id)
+
+
+
+        function stopAnimation(){
+            clearTimeout(id)
+        }
+
+
+       
+    </script>
+    
+</body>
+</html>
