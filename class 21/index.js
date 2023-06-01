@@ -15,6 +15,7 @@
 
 
 // this keyword from a function inside an object
+
 // let obj = {
 //     name : 'Adam',
 //     age : 23,
@@ -31,7 +32,7 @@
 // obj.getThis()// object itself
 
 
-
+// this keyword from a function that is inside a function inside an object
 let obj2 = {
     name: 'Steve',
     age: 22,
