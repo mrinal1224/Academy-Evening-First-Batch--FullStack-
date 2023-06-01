@@ -29,6 +29,9 @@
             let timerID;
             return function optWorkFn() {
 
+
+                //console.log(timerID)
+
                 clearTimeout(timerID)
 
                 timerID = setTimeout(function () {
@@ -59,7 +62,7 @@
         }
 
 
-        let optFn = throttle(work, 3000)
+        let optFn = debounce(work, 3000)
 
 
         let input = document.querySelector('input')
