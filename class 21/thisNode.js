@@ -15,25 +15,28 @@
 //     age : 23,
 
 //     getThis : function(){
-//         console.log(this)
+//         console.log(this.name)
 //     },
 
 //     gender : "male"
 // }
 
-// obj.getThis()// object itself
+//  obj.getThis()// object itself
+
+
+//  console.log(obj.child.childName)
 
 // this keyword from a function that is inside a function inside an object
-let obj2 = {
-  name: "Steve",
-  age: 22,
+// let obj2 = {
+//   name: "Steve",
+//   age: 22,
 
-  testFunction: function f() {
-    function g() {
-      console.log(this);
-    }
-    g();
-  },
-};
+//   testFunction: function f() {
+//     function g() {
+//       console.log(this);
+//     }
+//     g();
+//   },
+// };
 
-obj2.testFunction();
+// obj2.testFunction();
