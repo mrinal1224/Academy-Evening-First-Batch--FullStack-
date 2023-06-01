@@ -37,3 +37,9 @@ console.log(car)
 //     color : "red",
 //     topSpeed : "1000km/hr"
 // }
+
+
+// create a constructor function for creating objects for laptops
+// which should have four properties - name , color , RAM , ScreenSize
+
+
