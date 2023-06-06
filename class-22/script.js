@@ -30,7 +30,6 @@ let teacher2 = {
 
 let arr = ['septBatch' , 'NovBatch' , 'OctBatch']
 
-let arr2 = ['mayBatch' , 'juneBatch' , 'JanBatch']
 
 
 // student.getEmail(teacher)  function Borrowing
@@ -42,12 +41,33 @@ console.log(chooseSubject.call(teacher1 , 'Mathematics' , 100 , true))
 
 console.log(chooseSubject.call(teacher2 , 'English' , 'Geography' , false))
 
-console.log(chooseBatches.apply(teacher1 ,arr))
-
-console.log(chooseBatches.apply(teacher2 , arr2))
 
 
 //apply 
+console.log(chooseBatches.apply(teacher1 ,arr))
+
+console.log(chooseBatches.apply(teacher2 , ['juneBatch' , 'mayBatch' ,'marchBatch']))
+
+//Bind
+
+let callLater = getEmail.bind(teacher1)
+console.log(callLater)
+
+
+console.log(callLater())
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
