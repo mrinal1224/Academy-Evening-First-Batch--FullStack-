@@ -44,6 +44,11 @@ console.log(person1)
 console.log(teacher1)
 console.log(student1)
 
+teacher1.hello()
+
+
+
+
 
 
 
