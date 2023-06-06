@@ -1,18 +1,5 @@
-// let person1 = 'Adam'
 
-
-// let person2 = 'Steve'
-
-// person2 = person1
-
-
-
-// console.log(person1)
-// console.log(person2)
-
-
-
-
+// Reference dataType - Stack and Heap (Pass by reference)
 let person1 = {
     name : 'Adam',
     age : 25
@@ -28,7 +15,7 @@ console.log(person1)
 console.log(person2)
 
 
-
+// Primitive DataType - Stack (pass by value)
 // let firstPerson = 'Adam'
 // let secondPerson = firstPerson
 
