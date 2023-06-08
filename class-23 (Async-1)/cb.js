@@ -4,7 +4,7 @@ let dataArray = [
 
 ] // dummy API
 
-function getData(){
+function getData(cb){
 
    setTimeout(function(){
      let output = ''
