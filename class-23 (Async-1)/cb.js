@@ -19,20 +19,18 @@ function getData(){
 
 
 
-function createData(newData){
+function createData(newData , cb){
     setTimeout(function(){
         dataArray.push(newData)
-    } ,1000)
+        cb()
+    } ,3000)
 }
 
 
-createData({name:'Mark' , age:30}) // 3 seconds
-getData() // 2seconds
+createData({name:'Mark' , age:30} , getData) // 3 seconds
 
 
 
-
-console.log(dataArray)
 
 
 
