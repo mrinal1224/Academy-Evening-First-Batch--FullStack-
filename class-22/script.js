@@ -51,10 +51,10 @@ console.log(chooseBatches.apply(teacher2 , ['juneBatch' , 'mayBatch' ,'marchBatc
 //Bind
 
 let callLater = getEmail.bind(teacher1)
-console.log(callLater)
-
-
 console.log(callLater())
+
+
+
 
 
 

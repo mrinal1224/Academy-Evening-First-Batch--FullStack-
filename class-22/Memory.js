@@ -59,12 +59,14 @@ let person3 = {
 
 let person4 = JSON.parse(JSON.stringify(person3)) // Deep copy
 
-person4.address.city = 'Delhi'
-
-person4.address.state.name = 'Karnataka'
-
-console.log(person3)
 console.log(person4)
+
+// person4.address.city = 'Delhi'
+
+// person4.address.state.name = 'Karnataka'
+
+// console.log(person3)
+// console.log(person4)
 
 
 
