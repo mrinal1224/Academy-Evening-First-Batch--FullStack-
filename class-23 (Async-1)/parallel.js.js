@@ -37,7 +37,7 @@ function readFileCallback2(err , data){
     if(err){
         console.log(err)
     }else{
-        console.log('File 1 data ->' + data)
+        console.log('File 2 data ->' + data)
     }
 }
 
@@ -48,17 +48,16 @@ function readFileCallback3(err , data){
     if(err){
         console.log(err)
     }else{
-        console.log('File 1 data ->' + data)
+        console.log('File  data ->' + data)
     }
 }
 
 console.log('after')
 
 
-console.log("hello")
 
 
-console.log("Bye")
+
 
 
 
