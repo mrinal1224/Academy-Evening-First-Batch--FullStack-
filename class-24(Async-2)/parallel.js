@@ -30,7 +30,9 @@ function handleError(err){
 
 
 f1p.then(readFileCallback)
+
 f2p.then(readFileCallback)
+
 f3p.then(readFileCallback)
 
 f1p.catch(handleError)
