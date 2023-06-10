@@ -10,14 +10,12 @@ let myPromise = new Promise(function(resolve , reject){
       }
 })
 
-
 // then method
 myPromise.then(function(data){
     console.log(data)
+    
 })
-
-
-//catch method
+// catch method
 
 myPromise.catch(function(error){
     console.log(error)
