@@ -52,12 +52,19 @@ function genreateBill(processedOrder){
 
 
 async function serveOrder(){
-    let orderstatus = await placeOrder('coffee')
-    console.log(orderstatus)
-    let processedOrder = await processOrder(orderstatus)
-    console.log(processedOrder)
-    let generatedBill = await genreateBill(processedOrder)
-    console.log(generatedBill)
+
+
+    try {
+        let orderstatus = await placeOrder('tea')
+        console.log(orderstatus)
+        let processedOrder = await processOrder(orderstatus)
+        console.log(processedOrder)
+        let generatedBill = await genreateBill(processedOrder)
+        console.log(generatedBill)
+    } catch (error) {
+        console.log(error)
+    }
+ 
 
 
 
