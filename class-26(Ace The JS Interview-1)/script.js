@@ -1,5 +1,5 @@
 function parent() {
-  var a = 20;
+  let a = 20;
   function child() {
     console.log(a);
 
