@@ -20,8 +20,8 @@
 // Diffrence Between == and ===
 
 
-let a = 2
-let b = 2
+// let a = 2
+// let b = 2
 
 // console.log(a==b) // loose checking //
 // here in this case only the values are getting checked
@@ -35,14 +35,44 @@ let b = 2
 
 // operator - typeof Operator
 
-let c = {name : 'Mrinal'} // number
+// let c = {name : 'Mrinal'} // number
 
 // console.log(typeof c)
 
 // Array.isArray - Boolean Method
 
-let checkArray = Array.isArray(c)
-console.log(checkArray)
+// let checkArray = Array.isArray(c)
+// console.log(checkArray)
+
+
+// let d = 2 + ''
+
+// console.log(d)
+
+
+let sqroot = Math.sqrt(-3)
+// console.log(sqroot)
+
+
+// console.log(typeof sqroot)
+
+
+// let out = 'scaler'*10
+// console.log(out)
+
+let a = 2
+
+// isNan - boolean true and False
+
+// let checkIsNan = isNaN(a)
+// console.log(checkIsNan)
+
+
+console.log(isNaN(null))
+
+console.log(isNaN(undefined))
+
+
 
 
 
