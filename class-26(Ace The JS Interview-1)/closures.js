@@ -1,3 +1,4 @@
+
 function parent(){
     var a = 10
 
@@ -8,10 +9,13 @@ function parent(){
             console.log(a+b)
         }
 
-        return child2
-    }
+      return child2
+
+}
+
 
     return child1
+
 }
 
 let child1Received = parent()
@@ -20,4 +24,4 @@ let child1Received = parent()
 let child2Received = child1Received()
 
 
-child2Received()
+console.log(child2Received())
