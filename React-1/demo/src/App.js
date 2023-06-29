@@ -1,10 +1,14 @@
 
-import './App.css';
+
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
     <div >
-       <h1>Hello from React</h1>
+      <UserProfile name='Mark' age={25} occupation='Civil Engineer'/>
+      <UserProfile name='John' age={35} occupation='Electornics Engineer'/>
+      <UserProfile name='Steve' age={40} occupation='Bussinessman'/>
+       
     </div>
   );
 }
