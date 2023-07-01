@@ -1,13 +1,12 @@
 import React from 'react'
 
-function UserProfile(props) {
+function UserProfile({name ,age , occupation}) {
 
-    console.log(props)
+    // const {name , age , occupation} = props // destruturing
 
-    props.name = 'Adam'
   return (
     <div>
-        <h3>Name : {props.name} , Age : {props.age} , Occupation :{props.occupation}</h3>
+        <h3>Name : {name} , Age : {age} , Occupation :{occupation}</h3>
     </div>
   )
 }
