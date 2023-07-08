@@ -10,8 +10,9 @@ function Movies() {
 
   const [movies , setMovies] = useState([])
   const [pageNum , setPageNum] = useState(1)
+  const [watchList , setWatchList] = useState([])
 
-
+ // Pagination Methods
   const onNext = ()=>{
       setPageNum(pageNum +1)
   }
@@ -23,6 +24,20 @@ function Movies() {
       }
   }
 
+
+  // WatchList Handlers
+
+  const addToWatchList =(id)=>{
+    const newWatchList = [...watchList , id]
+    setWatchList(newWatchList)
+    console.log(watchList)
+  }
+
+
+
+
+  
+
   useEffect(()=>{
 
     (function(){
@@ -30,7 +45,7 @@ function Movies() {
       .get(`https://api.themoviedb.org/3/trending/movie/day?api_key=ed9945885ba0c6f7a7edc57b379191ae&page=${pageNum}`)
       .then((res) => {
         setMovies(res.data.results)
-        console.log(res.data)
+     
        
       });
     })()
@@ -38,7 +53,7 @@ function Movies() {
   } , [pageNum])
 
 
-  console.log(pageNum)
+  
 
 
  
@@ -56,6 +71,19 @@ function Movies() {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
           }}
         >
+ 
+          {/* {
+            watchList
+          } */}
+       
+       
+        <div className="text-2xl p-2 bg-gray-900 rounded-2xl absolute right-2 top-2"> 
+          <div onClick={()=>addToWatchList(movie.id)}> 😍 </div>
+        
+
+        </div>
+
+
           <div className="text-white font-bold text-center w-full bg-gray-900 bg-opacity-60">
           {movie.title}
           </div>
