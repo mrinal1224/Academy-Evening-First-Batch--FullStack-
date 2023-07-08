@@ -30,8 +30,21 @@ function Movies() {
   const addToWatchList =(id)=>{
     const newWatchList = [...watchList , id]
     setWatchList(newWatchList)
-    console.log(watchList)
   }
+
+   // watchList = [1233 , 3211 , 4321 , 4456] - 3211
+  const removeFromWatchList = (id)=>{
+    const filteredWatchList = watchList.filter((watchlistID)=>{
+      return watchlistID = !id
+    })
+
+    setWatchList(filteredWatchList)
+
+  }
+
+
+
+
 
 
 
@@ -72,13 +85,22 @@ function Movies() {
           }}
         >
  
-          {/* {
-            watchList
-          } */}
+
+
        
        
         <div className="text-2xl p-2 bg-gray-900 rounded-2xl absolute right-2 top-2"> 
-          <div onClick={()=>addToWatchList(movie.id)}> 😍 </div>
+
+          {
+            watchList.includes(movie.id)==false ? (
+              <div onClick={()=>addToWatchList(movie.id)}> 😍 </div>
+            ) : (
+              <div onClick={()=>removeFromWatchList(movie.id)}>
+                     ❌
+              </div>
+            )
+          }
+          
         
 
         </div>
