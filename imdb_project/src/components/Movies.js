@@ -12,7 +12,7 @@ function Movies() {
 
 
 
-  // Pagination Methods
+  // Pagination handlers
   const onNext = () => {
     setPageNum(pageNum + 1);
   };
@@ -24,13 +24,12 @@ function Movies() {
   };
 
   // WatchList Handlers
-  //  1233 - Misson impossible
+
   const addToWatchList = (id) => {
     const newWatchList = [...watchList, id];
     setWatchList(newWatchList);
   };
-// [1432 , 1233 , 13456]
-  // 1233
+
   const removeFromWatchList = (id) => {
     const filteredWatchList = watchList.filter((watchlistID) => {
       return (watchlistID != id);
@@ -39,7 +38,7 @@ function Movies() {
     setWatchList(filteredWatchList);
   };
 
-
+ // Hovering on movie cards
   const showButton = (id)=>{
       setHovered(id) // 2
   }
@@ -49,7 +48,7 @@ function Movies() {
   }
 
 
-  console.log(watchList)
+  //console.log(watchList)
 
   useEffect(() => {
     (function () {
