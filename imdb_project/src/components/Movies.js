@@ -8,6 +8,9 @@ function Movies() {
   const [movies, setMovies] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [watchList, setWatchList] = useState([]);
+  const [hovered , setHovered] = useState('')
+
+
 
   // Pagination Methods
   const onNext = () => {
@@ -21,13 +24,13 @@ function Movies() {
   };
 
   // WatchList Handlers
-
+  //  1233 - Misson impossible
   const addToWatchList = (id) => {
     const newWatchList = [...watchList, id];
     setWatchList(newWatchList);
   };
-
-  
+// [1432 , 1233 , 13456]
+  // 1233
   const removeFromWatchList = (id) => {
     const filteredWatchList = watchList.filter((watchlistID) => {
       return (watchlistID != id);
@@ -35,6 +38,15 @@ function Movies() {
 
     setWatchList(filteredWatchList);
   };
+
+
+  const showButton = (id)=>{
+      setHovered(id) // 2
+  }
+
+  const hideButton = ()=>{
+     setHovered('')
+  }
 
 
   console.log(watchList)
@@ -59,13 +71,20 @@ function Movies() {
         {movies.map((movie) => {
           return (
             <div
+
+              onMouseOver={()=> showButton(movie.id)}
+              onMouseLeave={()=> hideButton()}
               key={movie.id}
               className="w-[200px] h-[35vh] bg-center bg-cover rounded-xl m-4 md:h[40vh] md:w[200px] hover:scale-110 duration-300 relative flex items-end"
               style={{
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
               }}
+
+
             >
-              <div className="text-2xl p-2 bg-gray-900 rounded-2xl absolute right-2 top-2">
+              <div className="text-2xl p-2 bg-gray-900 rounded-2xl absolute right-2 top-2"
+               style={{display : hovered == movie.id ? 'block' : 'none'}}
+              >
                 {watchList.includes(movie.id) == false ? (
                   <div onClick={() => addToWatchList(movie.id)}> 😍 </div>
                 ) : (
