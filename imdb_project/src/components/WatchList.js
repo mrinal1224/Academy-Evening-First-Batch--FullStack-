@@ -4,6 +4,8 @@ function WatchList() {
   const [favourites, setFavourites] = useState([]);
   const [genres, setGenres] = useState([]);
   const [currGenre, setCurrGenre] = useState("All Genres");
+  const [rating, setRating] = useState(0);
+
 
   let genreids = {
     28: "Action",
@@ -48,7 +50,39 @@ function WatchList() {
   filteredArray =
     currGenre == "All Genres"
       ? favourites
-      : favourites.filter((movie) => genreids[movie.genre_ids[0]]==currGenre);
+      : favourites.filter((movie) => genreids[movie.genre_ids[0]] == currGenre);
+
+
+   // Sorting with Respect to ratings
+   if(rating==-1){
+     filteredArray = filteredArray.sort(function(objA , objB){
+       return objB.vote_average-objA.vote_average
+     })
+   }
+
+
+   if(rating==1){
+    filteredArray = filteredArray.sort(function(objA , objB){
+      return objA.vote_average-objB.vote_average
+    })
+  }
+
+
+  // Sorting with respect to popularity
+
+
+
+
+
+
+
+
+
+  const del = (movie)=>{
+      let newArray = favourites.filter((m)=> m.id!= movie.id)
+      setFavourites([...newArray])
+      localStorage.setItem('imdb' , JSON.stringify(newArray))
+  }
 
   return (
     <>
@@ -61,9 +95,8 @@ function WatchList() {
                   ? "m-2 text-lg p-1 px-2 bg-blue-400 text-white rounded-xl font-bold"
                   : "m-2 text-lg p-1 px-2 bg-gray-400 hover:bg-blue-400 text-white rounded-xl font-bold"
               }
-
-              onClick={()=>{
-                setCurrGenre(genre)
+              onClick={() => {
+                setCurrGenre(genre);
               }}
             >
               {genre}
@@ -80,7 +113,21 @@ function WatchList() {
 
               <th>
                 <div className="flex">
+                  <img
+                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
+                    className="mr-1"
+                    onClick={()=>{
+                       setRating(1)
+                    }}
+                  />
                   <div>Ratings</div>
+                  <img
+                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
+                    className="ml-1"
+                    onClick={()=>{
+                      setRating(-1)
+                   }}
+                  />
                 </div>
               </th>
 
@@ -118,6 +165,11 @@ function WatchList() {
                   <td className="pl-6 py-4">{movie.popularity}</td>
 
                   <td className="py-4">{genreids[movie.genre_ids[0]]}</td>
+
+                  <td>
+                    <button className="text-red-600" onClick={()=> del(movie)}>Delete</button>
+                   
+                  </td>
                 </tr>
               );
             })}
