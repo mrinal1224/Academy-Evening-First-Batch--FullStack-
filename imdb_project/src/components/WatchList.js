@@ -1,6 +1,8 @@
-import React from "react";
+import React , {useState , useEffect} from "react";
 
 function WatchList() {
+ const [watchList , setWatchList] = useState([])
+
   let movies = [
     {
       adult: false,
@@ -75,6 +77,19 @@ function WatchList() {
       vote_count: 1694,
     },
   ];
+
+
+
+  useEffect(()=>{
+    let moviesFromLocalStorage = localStorage.getItem('imdb')
+
+    moviesFromLocalStorage = JSON.parse(moviesFromLocalStorage)
+
+    setWatchList(moviesFromLocalStorage)
+  } , [])
+
+
+  
   return (
 
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -105,7 +120,7 @@ function WatchList() {
 
         <tbody class="divide-y divide-gray-100 border-t border-gray-100">
 
-          {movies.map((movie)=>{
+          {watchList.map((movie)=>{
             return <tr  class="hover:bg-gray-50" >
             <td class="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2" >
             
