@@ -5,7 +5,7 @@ function WatchList() {
   const [genres, setGenres] = useState([]);
   const [currGenre, setCurrGenre] = useState("All Genres");
   const [rating, setRating] = useState(0);
-
+  const [searchStr, setSearchStr] = useState("");
 
   let genreids = {
     28: "Action",
@@ -52,37 +52,30 @@ function WatchList() {
       ? favourites
       : favourites.filter((movie) => genreids[movie.genre_ids[0]] == currGenre);
 
-
-   // Sorting with Respect to ratings
-   if(rating==-1){
-     filteredArray = filteredArray.sort(function(objA , objB){
-       return objB.vote_average-objA.vote_average
-     })
-   }
-
-
-   if(rating==1){
-    filteredArray = filteredArray.sort(function(objA , objB){
-      return objA.vote_average-objB.vote_average
-    })
+  // Sorting with Respect to ratings
+  if (rating == -1) {
+    filteredArray = filteredArray.sort(function (objA, objB) {
+      return objB.vote_average - objA.vote_average;
+    });
   }
 
+  if (rating == 1) {
+    filteredArray = filteredArray.sort(function (objA, objB) {
+      return objA.vote_average - objB.vote_average;
+    });
+  }
+
+   filteredArray = filteredArray.filter((movie)=>{
+     return movie.title.toLowerCase().includes(searchStr.toLowerCase())
+   })
 
   // Sorting with respect to popularity
 
-
-
-
-
-
-
-
-
-  const del = (movie)=>{
-      let newArray = favourites.filter((m)=> m.id!= movie.id)
-      setFavourites([...newArray])
-      localStorage.setItem('imdb' , JSON.stringify(newArray))
-  }
+  const del = (movie) => {
+    let newArray = favourites.filter((m) => m.id != movie.id);
+    setFavourites([...newArray]);
+    localStorage.setItem("imdb", JSON.stringify(newArray));
+  };
 
   return (
     <>
@@ -105,6 +98,16 @@ function WatchList() {
         })}
       </div>
 
+      <div className="text-center">
+        <input
+          type="text"
+          className="border bg-gray-200 border-4 text-center p-1 m-2"
+          placeholder="Search for Movies"
+           value={searchStr}
+          onChange={(e)=> setSearchStr(e.target.value)}
+        />
+      </div>
+
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class='w-full border-collapse bg-white text-left text-sm text-gray-500"'>
           <thead class="bg-gray-50">
@@ -116,17 +119,17 @@ function WatchList() {
                   <img
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
                     className="mr-1"
-                    onClick={()=>{
-                       setRating(1)
+                    onClick={() => {
+                      setRating(1);
                     }}
                   />
                   <div>Ratings</div>
                   <img
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
                     className="ml-1"
-                    onClick={()=>{
-                      setRating(-1)
-                   }}
+                    onClick={() => {
+                      setRating(-1);
+                    }}
                   />
                 </div>
               </th>
@@ -167,8 +170,9 @@ function WatchList() {
                   <td className="py-4">{genreids[movie.genre_ids[0]]}</td>
 
                   <td>
-                    <button className="text-red-600" onClick={()=> del(movie)}>Delete</button>
-                   
+                    <button className="text-red-600" onClick={() => del(movie)}>
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );
