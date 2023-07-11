@@ -32,12 +32,13 @@ function Movies() {
 
   };
 
-  const removeFromWatchList = (id) => {
-    const filteredWatchList = watchList.filter((watchlistID) => {
-      return (watchlistID != id);
+  const removeFromWatchList = (movie) => {
+    const filteredWatchList = watchList.filter((m) => {
+      return (m.id!= movie.id);
     });
 
     setWatchList(filteredWatchList);
+    localStorage.setItem('imdb' , JSON.stringify(filteredWatchList))
   };
 
  // Hovering on movie cards
@@ -53,13 +54,21 @@ function Movies() {
   //console.log(watchList)
 
   useEffect(() => {
+
+
     (function () {
+
+      let moviesFromLS = localStorage.getItem('imdb')
+      moviesFromLS = JSON.parse(moviesFromLS) || []
+      setWatchList(moviesFromLS)
+
       axios
         .get(
           `https://api.themoviedb.org/3/trending/movie/day?api_key=ed9945885ba0c6f7a7edc57b379191ae&page=${pageNum}`
         )
         .then((res) => {
           setMovies(res.data.results);
+          console.log(res.data.results)
         });
     })();
   }, [pageNum]);
@@ -86,10 +95,10 @@ function Movies() {
               <div className="text-2xl p-2 bg-gray-900 rounded-2xl absolute right-2 top-2"
                style={{display : hovered == movie.id ? 'block' : 'none'}}
               >
-                {watchList.includes(movie.id) == false ? (
+                {watchList.includes(movie) == false ? (
                   <div onClick={() => addToWatchList(movie)}> 😍 </div>
                 ) : (
-                  <div onClick={() => removeFromWatchList(movie.id)}>❌</div>
+                  <div onClick={() => removeFromWatchList(movie)}>❌</div>
                 )}
               </div>
 
