@@ -1,5 +1,6 @@
 import Children from './Children';
 
+
 const Parent = ({parentInfo}) => {
 
   console.log('This is from the parents-> ' , parentInfo)

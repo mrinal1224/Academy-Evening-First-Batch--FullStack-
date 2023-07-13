@@ -1,11 +1,12 @@
-import GrandSon from './GrandSon';
-import GrandDaughter from './GrandDaughter';
+import GrandSonC from './GrandSonC';
+ import GrandDaughterC from './GrandDaughterC';
 
 import { FamilyContext } from '../ContextComponents/FamilyContext';
 
 import { useContext } from 'react';
 
-const Children = () => {
+
+const ChildrenC = () => {
 
    let childrenInfo = useContext(FamilyContext)
   
@@ -16,11 +17,11 @@ const Children = () => {
       
 
 
-      {/* <GrandSon grandSonInfo={childrenInfo}/>
-      <GrandDaughter grandDaughterInfo={childrenInfo}/> */}
+        <GrandSonC/> 
+      <GrandDaughterC/> 
      
     </div>
   );
 }
 
-export default Children;
+export default ChildrenC

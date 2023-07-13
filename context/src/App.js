@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import Family from './prop_drill/Family';
+import FamilyC from './ContextComponents/FamilyC';
+
+import { FamilyContext } from './ContextComponents/FamilyContext';
+import Ref from './ContextComponents/Ref';
 
 
 const familyInfo = {
@@ -23,7 +27,19 @@ function App() {
 
   return (
     <div className="App">
-       <Family info={familyInfo}/>
+      {/* <FamilyContext.Provider value={familyInfo}>
+    
+      <FamilyC/>
+
+      </FamilyContext.Provider> */}
+
+
+       <Ref/>
+
+
+
+
+
     </div>
   );
 }
