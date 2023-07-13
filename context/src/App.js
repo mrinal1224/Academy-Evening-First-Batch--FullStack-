@@ -6,6 +6,7 @@ import FamilyC from './ContextComponents/FamilyC';
 
 import { FamilyContext } from './ContextComponents/FamilyContext';
 import Ref from './ContextComponents/Ref';
+import Factorial from './ContextComponents/Factorial';
 
 
 const familyInfo = {
@@ -34,7 +35,9 @@ function App() {
       </FamilyContext.Provider> */}
 
 
-       <Ref/>
+       {/* <Ref/> */}
+
+       <Factorial/>
 
 
 
